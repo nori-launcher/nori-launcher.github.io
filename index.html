@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nori — 안드로이드용 에뮬레이터 게임 런처 · Android emulation frontend</title>
-<meta name="description" content="롬 폴더만 고르면 표지·로고·배경·미리보기 영상까지 알아서 꾸며 주는 안드로이드 런처. An Android emulation frontend for retro handhelds.">
-<meta property="og:title" content="Nori — Android emulation frontend for retro handhelds">
-<meta property="og:description" content="Point it at your ROMs. Nori does the rest. 롬 폴더만 고르면 알아서 꾸며 주는 런처.">
+<title>Nori — 레트로 게임 런처 · Retro game launcher for Android</title>
+<meta name="description" content="롬 폴더만 고르면 기기별로 나누고 표지·로고·배경·미리보기 영상까지 붙여 주는 안드로이드용 에뮬레이터 게임 런처. An Android emulation frontend for retro handhelds.">
+<meta property="og:title" content="Nori — Retro game launcher for Android">
+<meta property="og:description" content="All your retro games in one place. 레트로 게임을 한곳에서 고르고 바로 시작">
 <meta property="og:image" content="https://nori-launcher.github.io/assets/og.png">
 <meta property="og:url" content="https://nori-launcher.github.io/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script>
-  // 저장된 선택 → 없으면 기기 언어 (한국어가 아니면 영어)
+  // 주소의 ?lang= → 저장된 선택 → 기기 언어 (한국어가 아니면 영어)
   (function () {
     var l = (location.search.match(/[?&]lang=(ko|en)/) || [])[1] || null;
     if (!l) { try { l = localStorage.getItem('nori-lang'); } catch (e) {} }
@@ -32,8 +32,9 @@
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Nori"><img src="assets/logo.svg" alt="Nori"></a>
     <nav class="links">
+      <a href="#video"><span class="ko">영상</span><span class="en">Video</span></a>
       <a href="#features"><span class="ko">기능</span><span class="en">Features</span></a>
-      <a href="#styles"><span class="ko">스타일</span><span class="en">Styles</span></a>
+      <a href="#styles"><span class="ko">테마</span><span class="en">Themes</span></a>
       <a href="#start"><span class="ko">시작하기</span><span class="en">Get started</span></a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -42,7 +43,6 @@
         <button type="button" data-lang="ko">한국어</button>
         <button type="button" data-lang="en">English</button>
       </div>
-      <a class="btn ghost small" href="https://github.com/nori-launcher/Nori">GitHub</a>
     </div>
   </div>
 </header>
@@ -51,196 +51,205 @@
 
 <section class="hero">
   <div class="wrap">
-    <div>
-      <span class="pill"><span class="ko">무료 베타 · 안드로이드 8.0+</span><span class="en">Free beta · Android 8.0+</span></span>
+    <div class="copy">
+      <span class="pill"><span class="ko">무료 베타 · 0.3.1</span><span class="en">Free beta · 0.3.1</span></span>
       <h1>
-        <span class="ko">고르는 순간부터<br><em>놀이</em>처럼.</span>
-        <span class="en">Play starts<br>the moment you <em>pick</em>.</span>
+        <span class="ko">레트로 게임을<br><em>한곳에서</em><br>골라 바로 시작</span>
+        <span class="en">All your<br>retro games<br><em>in one place</em></span>
       </h1>
       <p class="lead">
-        <span class="ko">레트로 게임 기기를 위한 안드로이드용 에뮬레이터 게임 런처. 롬 폴더만 고르면 표지·로고·배경·미리보기 영상까지 노리가 알아서 꾸밉니다.</span>
-        <span class="en">An Android emulation frontend for retro handhelds. Point it at your ROM folder and Nori dresses it up with box art, logos, backgrounds and preview videos.</span>
+        <span class="ko">레트로 게임기를 위한 안드로이드용 에뮬레이터 게임 런처입니다. 롬 폴더만 고르면 기기별로 나누고, 표지·로고·배경·미리보기 영상을 알아서 붙입니다.</span>
+        <span class="en">An Android emulation frontend for retro handhelds. Pick your ROM folder and Nori sorts it by system, then adds box art, logos, backgrounds and preview videos.</span>
       </p>
       <div class="cta">
         <a class="btn primary" href="https://github.com/nori-launcher/Nori/releases/latest">
-          <svg viewBox="0 0 24 24"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5z"/></svg>
           <span class="ko">무료로 받기</span><span class="en">Download free</span>
         </a>
-        <a class="btn ghost" href="https://github.com/nori-launcher/Nori"><span class="ko">깃허브에서 보기</span><span class="en">View on GitHub</span></a>
+        <a class="btn ghost" href="#video">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          <span class="ko">소개 영상 보기</span><span class="en">Watch the video</span>
+        </a>
       </div>
       <p class="meta">
-        <span class="ko">게임 파일과 에뮬레이터는 들어 있지 않습니다. 설치된 에뮬레이터로 게임을 띄워 주는 런처입니다.</span>
-        <span class="en">No games or emulators included. Nori launches games through the emulators you already have.</span>
+        <span class="ko">안드로이드 8.0 이상 · 게임과 에뮬레이터는 들어 있지 않습니다</span>
+        <span class="en">Android 8.0+ · No games or emulators included</span>
       </p>
     </div>
-    <div>
-      <div class="screen">
-        <video data-video="hero" autoplay muted loop playsinline preload="auto" poster="assets/ko/wheel.webp"></video>
+    <div class="hero-shot">
+      <div class="screen glow">
+        <video data-video="hero" autoplay muted loop playsinline preload="auto"></video>
       </div>
       <p class="caption">
-        <span class="ko">휠을 세게 돌리면 룰렛처럼 돌다가 오늘 할 게임에 멈춥니다. 실제 앱 화면입니다.</span>
-        <span class="en">Spin the wheel hard and it turns into a roulette that picks today's game. Real in-app footage.</span>
+        <span class="ko">휠을 세게 밀면 룰렛이 돌다가 오늘 할 게임에 멈춥니다 · 실제 앱 화면</span>
+        <span class="en">Swipe the wheel hard and it lands on today's game · Real in-app footage</span>
       </p>
     </div>
   </div>
 </section>
 
-<section>
+<section class="facts">
   <div class="wrap">
-    <div class="cards">
-      <div class="card"><div class="ico">🗂️</div>
-        <b><span class="ko">폴더만 고르면 끝</span><span class="en">Just pick a folder</span></b>
-        <p><span class="ko">기기별로 알아서 나누고, 빈 그림은 ScreenScraper에서 받아 옵니다. ES-DE 폴더도 그대로 읽어요.</span>
-           <span class="en">Games are sorted by system automatically, and missing art is fetched from ScreenScraper. Your ES-DE folder works as is.</span></p></div>
-      <div class="card"><div class="ico">🎮</div>
-        <b><span class="ko">패드 하나로 끝까지</span><span class="en">Gamepad-first</span></b>
-        <p><span class="ko">레트로이드 포켓, AYN 오딘 같은 휴대용 기기에 맞췄습니다. 손가락으로도 됩니다.</span>
-           <span class="en">Made for handhelds like the Retroid Pocket and AYN Odin. Touch works too.</span></p></div>
-      <div class="card"><div class="ico">✨</div>
-        <b><span class="ko">고르는 재미</span><span class="en">Fun to browse</span></b>
-        <p><span class="ko">스타일 네 가지, 휠 룰렛, 업적 443개, 달마다 돌아오는 결산.</span>
-           <span class="en">Four styles, a roulette wheel, 443 achievements and a monthly recap.</span></p></div>
+    <div class="fact"><b>34</b><span><span class="ko">지원 기기</span><span class="en">systems</span></span></div>
+    <div class="fact"><b>4</b><span><span class="ko">테마</span><span class="en">themes</span></span></div>
+    <div class="fact"><b>10</b><span><span class="ko">장르</span><span class="en">genres</span></span></div>
+    <div class="fact"><b>453</b><span><span class="ko">업적</span><span class="en">achievements</span></span></div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap narrow">
+    <div class="kicker"><span class="ko">소개 영상</span><span class="en">Video</span></div>
+    <h2><span class="ko">2분 만에 보는 노리</span><span class="en">Nori in two minutes</span></h2>
+    <div class="screen big">
+      <video data-video="intro" data-poster="home" controls preload="none" playsinline></video>
     </div>
   </div>
 </section>
 
 <section id="features">
   <div class="wrap">
-    <div class="kicker"><span class="ko">둘러보기</span><span class="en">Tour</span></div>
-    <h2><span class="ko">켜는 순간부터 <em>내 게임기</em>처럼.</span><span class="en">Feels like <em>your</em> console from the start.</span></h2>
 
-    <div class="row">
+    <article class="row">
       <div class="text">
-        <h2 style="font-size:30px"><span class="ko">켜자마자, 하던 게임으로</span><span class="en">Jump right back in</span></h2>
-        <p class="sub"><span class="ko">가장 최근에 한 게임이 큰 칸에 걸려 있어 A 한 번이면 이어서 합니다.</span><span class="en">Your latest game waits in the big tile. One press of A and you're back.</span></p>
+        <div class="kicker"><span class="ko">라이브러리</span><span class="en">Library</span></div>
+        <h2><span class="ko">폴더만 고르면<br><em>기기별로</em> 알아서</span><span class="en">Pick a folder<br>and it <em>sorts itself</em></span></h2>
+        <p><span class="ko">ps2, psp, snes처럼 기기 이름으로 나눈 폴더를 읽어 기기별로 묶습니다. 빈 그림은 ScreenScraper에서 받고, ES-DE 폴더와 gamelist.xml도 그대로 읽습니다.</span>
+           <span class="en">Folders named after each system (ps2, psp, snes…) are grouped automatically. Missing art comes from ScreenScraper, and your ES-DE folder and gamelist.xml work as they are.</span></p>
         <ul>
-          <li><div><span class="ko">지난 30일 플레이 시간 · 이번 주 1위</span><span class="en">Last 30 days · top game this week</span></div></li>
-          <li><div><span class="ko">낮 · 밤 · 시간 따라 바뀌는 테마</span><span class="en">Day · Night · By-time themes</span></div></li>
+          <li><span class="ko">공식 기기 로고와 기기별 독</span><span class="en">Official system logos and a system dock</span></li>
+          <li><span class="ko">고른 게임의 배경·로고가 화면 가득</span><span class="en">The game's background and logo fill the screen</span></li>
         </ul>
       </div>
-      <div class="duo">
-        <div class="screen"><img data-shot="home_night" alt="" loading="lazy"></div>
-        <div class="screen"><img data-shot="day_home" alt="" loading="lazy"></div>
+      <div class="pair">
+        <div class="screen"><img data-shot="consoles" alt="" loading="lazy"></div>
+        <div class="screen"><img data-shot="game" alt="" loading="lazy"></div>
       </div>
-    </div>
+    </article>
 
-    <div class="row flip">
+    <article class="row flip">
       <div class="text">
-        <h2 style="font-size:30px"><span class="ko">기기를 고르고, 게임을 고르고</span><span class="en">Pick a system, pick a game</span></h2>
-        <p class="sub"><span class="ko">고른 게임의 배경과 로고가 화면을 가득 채우고, 잠시 머물면 미리보기 영상이 흐릅니다.</span><span class="en">The game's background and logo fill the screen, and after a moment its preview video starts.</span></p>
+        <div class="kicker"><span class="ko">장르</span><span class="en">Genres</span></div>
+        <h2><span class="ko">Y 한 번으로<br><em>장르별로</em> 보기</span><span class="en">Press Y to<br>browse by <em>genre</em></span></h2>
+        <p><span class="ko">RPG·액션·어드벤처 등 10가지 장르로 나누고, 한 게임에 두 개까지 붙일 수 있습니다. 메타데이터에서 알아서 읽고, 틀리면 게임 창(X)에서 바로 고칩니다.</span>
+           <span class="en">Ten genres such as RPG, Action and Adventure, up to two per game. They're read from your metadata, and you can fix them right in the game window (X).</span></p>
         <ul>
-          <li><div><span class="ko">34개 기기 · 공식 기기 로고</span><span class="en">34 systems · official system logos</span></div></li>
-          <li><div><span class="ko">표지·로고·배경·영상 자동 짝짓기</span><span class="en">Box art, logos, backgrounds and videos matched for you</span></div></li>
+          <li><span class="ko">장르마다 게임 수를 한눈에</span><span class="en">See how many games each genre has</span></li>
+          <li><span class="ko">게임 창에 시작·클리어·즐겨찾기를 모아서</span><span class="en">Start, beaten mark and favorite in one window</span></li>
         </ul>
       </div>
-      <div class="duo">
-        <div class="screen"><img data-shot="game_video" alt="" loading="lazy"></div>
-        <div class="screen"><img data-shot="console_dock" alt="" loading="lazy"></div>
+      <div class="pair">
+        <div class="screen"><img data-shot="genre" alt="" loading="lazy"></div>
+        <div class="screen"><img data-shot="window" alt="" loading="lazy"></div>
       </div>
-    </div>
+    </article>
 
-    <div class="row">
+    <article class="row">
       <div class="text">
-        <h2 style="font-size:30px"><span class="ko">세게 돌리면 <em>룰렛</em></span><span class="en">Spin hard for a <em>roulette</em></span></h2>
-        <p class="sub"><span class="ko">뭘 할지 모르겠는 날엔 휠을 힘껏 돌려 보세요. 멈춘 자리가 오늘의 게임입니다.</span><span class="en">Can't decide? Give the wheel a hard spin. Where it stops is today's game.</span></p>
+        <div class="kicker"><span class="ko">그림·영상</span><span class="en">Art &amp; video</span></div>
+        <h2><span class="ko">그림은 <em>게임마다</em><br>보고 고르기</span><span class="en">Art you <em>choose</em><br>for every game</span></h2>
+        <p><span class="ko">표지·로고·배경·영상을 게임마다 직접 바꾸거나 숨길 수 있습니다. 이름으로 ScreenScraper를 검색하면 지금 그림과 새 그림을 나란히 보여 주고, 칸마다 쓸 쪽을 고릅니다.</span>
+           <span class="en">Change or hide box art, logo, background and video for any game. Search ScreenScraper by name to see your current art next to the new one, and pick which to use.</span></p>
         <ul>
-          <li><div><span class="ko">스틱으로 돌리고, 원을 그리면 빨라집니다</span><span class="en">Spin with the stick, draw circles to speed up</span></div></li>
-          <li><div><span class="ko">멈추는 순간 「오늘은 이 게임!」</span><span class="en">"This one today!" when it stops</span></div></li>
+          <li><span class="ko">한글 이름으로 바꾼 롬도 원래 이름으로 검색</span><span class="en">Search renamed ROMs by their original title</span></li>
+          <li><span class="ko">이름으로 못 찾으면 파일 지문으로 다시 찾기</span><span class="en">Falls back to file hashes when the name doesn't match</span></li>
         </ul>
       </div>
-      <div class="duo">
-        <div class="screen"><img data-shot="wheel_roulette" alt="" loading="lazy"></div>
+      <div class="pair">
+        <div class="screen"><img data-shot="media" alt="" loading="lazy"></div>
+        <div class="screen"><img data-shot="compare" alt="" loading="lazy"></div>
+      </div>
+    </article>
+
+    <article class="row flip">
+      <div class="text">
+        <div class="kicker"><span class="ko">휠 룰렛</span><span class="en">Wheel roulette</span></div>
+        <h2><span class="ko">고르기 어려운 날엔<br><em>룰렛</em></span><span class="en">Can't decide?<br>Spin the <em>roulette</em></span></h2>
+        <p><span class="ko">휠 스타일에서 휠을 세게 밀거나 왼쪽 스틱을 돌리면 룰렛이 돌다가 아무 게임에나 멈춥니다.</span>
+           <span class="en">In the wheel style, swipe the wheel hard or spin the left stick and it stops on a random game.</span></p>
+        <ul>
+          <li><span class="ko">처음 열면 굴리는 법 안내</span><span class="en">A short guide the first time you open it</span></li>
+          <li><span class="ko">멈추면 가운데에 「오늘은 이 게임!」</span><span class="en">"This one today!" when it stops</span></li>
+        </ul>
+      </div>
+      <div class="pair">
         <div class="screen"><img data-shot="wheel" alt="" loading="lazy"></div>
+        <div class="screen"><img data-shot="roulette" alt="" loading="lazy"></div>
       </div>
-    </div>
+    </article>
 
-    <div class="row flip">
+    <article class="row duo-row">
       <div class="text">
-        <h2 style="font-size:30px"><span class="ko">제목은 왼쪽, 이야기는 오른쪽</span><span class="en">Titles left, story right</span></h2>
-        <p class="sub"><span class="ko">게임이 많아도 한눈에. ES-DE gamelist.xml에 적은 이름과 설명이 그대로 나옵니다.</span><span class="en">Big libraries at a glance. Names and descriptions from your ES-DE gamelist.xml show up as they are.</span></p>
+        <div class="kicker"><span class="ko">듀얼 스크린</span><span class="en">Dual screen</span></div>
+        <h2><span class="ko">화면이 둘이면<br><em>둘 다</em> 쓰기</span><span class="en">Two screens<br>put <em>both</em> to work</span></h2>
+        <p><span class="ko">AYN Thor 같은 듀얼 스크린 기기에서는 한 화면으로 게임을 고르고, 다른 화면에 고른 게임의 배경·로고·설명을 크게 보여 줍니다.</span>
+           <span class="en">On dual-screen devices like the AYN Thor, pick games on one screen while the other shows the selected game's background, logo and description.</span></p>
         <ul>
-          <li><div><span class="ko">세로형·가로형 표지 모두 크게</span><span class="en">Tall and wide box art, both large</span></div></li>
-          <li><div><span class="ko">긴 설명은 저절로 천천히 흘러갑니다</span><span class="en">Long descriptions scroll on their own</span></div></li>
+          <li><span class="ko">게임을 켤 화면을 기기마다·게임마다 정하기</span><span class="en">Choose which screen each system or game launches on</span></li>
+          <li><span class="ko">작은 화면은 칸 크기를 L3로 바로 조절</span><span class="en">Resize tiles on the small screen with L3</span></li>
         </ul>
       </div>
-      <div class="duo">
-        <div class="screen"><img data-shot="list_main" alt="" loading="lazy"></div>
-        <div class="screen"><img data-shot="list_sfc" alt="" loading="lazy"></div>
-      </div>
-    </div>
+      <div class="duo-shot"><img data-shot="duo" alt="" loading="lazy"></div>
+    </article>
 
-    <div class="row">
+    <article class="row">
       <div class="text">
-        <h2 style="font-size:30px"><span class="ko">하면 할수록 쌓이는 것들</span><span class="en">The more you play, the more it adds up</span></h2>
-        <p class="sub"><span class="ko">업적 443개, 게임별 플레이 시간과 순위, 달이 바뀌면 「이달의 노리」 결산.</span><span class="en">443 achievements, play time and rankings for every game, and a monthly recap.</span></p>
+        <div class="kicker"><span class="ko">기록</span><span class="en">Records</span></div>
+        <h2><span class="ko">할수록 <em>쌓이는</em> 기록</span><span class="en">Your play <em>adds up</em></span></h2>
+        <p><span class="ko">업적 453개, 게임별 플레이 시간과 순위, 클리어한 게임, 달마다 돌아오는 결산까지 남습니다.</span>
+           <span class="en">453 achievements, play time and rankings for every game, beaten games and a monthly recap.</span></p>
         <ul>
-          <li><div><span class="ko">RetroAchievements 연결</span><span class="en">RetroAchievements support</span></div></li>
-          <li><div><span class="ko">해마다·달마다 기록, 연말 결산</span><span class="en">Yearly and monthly records, a year-end recap</span></div></li>
+          <li><span class="ko">RetroAchievements 연결</span><span class="en">RetroAchievements support</span></li>
+          <li><span class="ko">홈에서 하던 게임으로 바로</span><span class="en">Jump back in from the home screen</span></li>
         </ul>
       </div>
-      <div class="duo">
+      <div class="pair">
         <div class="screen"><img data-shot="records" alt="" loading="lazy"></div>
-        <div class="screen"><img data-shot="story_1" alt="" loading="lazy"></div>
+        <div class="screen"><img data-shot="home" alt="" loading="lazy"></div>
       </div>
-    </div>
+    </article>
 
-    <div class="row flip">
+    <article class="row flip">
       <div class="text">
-        <h2 style="font-size:30px"><span class="ko">패드 하나로 끝까지</span><span class="en">One gamepad, start to finish</span></h2>
-        <p class="sub"><span class="ko">터치 없이도 모든 걸. 단추가 하는 일은 설정에서 바꿀 수 있어요.</span><span class="en">Everything works without touch, and every button can be remapped.</span></p>
+        <div class="kicker"><span class="ko">조작</span><span class="en">Controls</span></div>
+        <h2><span class="ko">패드 <em>하나로</em> 끝까지</span><span class="en">One <em>gamepad</em>, start to finish</span></h2>
+        <p><span class="ko">휴대용 게임기에 맞춰 터치 없이 모두 쓸 수 있습니다. 단추가 하는 일은 설정에서 바꿀 수 있습니다.</span>
+           <span class="en">Built for handhelds, so everything works without touch. Every button can be remapped.</span></p>
         <ul>
-          <li><div><span class="ko">초성 찾기 (ㅍㅍ → 파이널 판타지)</span><span class="en">Search by letters (FIN → Final Fantasy)</span></div></li>
-          <li><div><span class="ko">R2 빠른 창 · L2 버튼 안내 · 대기 화면</span><span class="en">R2 quick panel · L2 button guide · idle screen</span></div></li>
-          <li><div><span class="ko">게임마다 에뮬레이터·그림 따로 정하기</span><span class="en">Per-game emulator and artwork</span></div></li>
+          <li><span class="ko">R2 빠른 창 · L2 버튼 안내 · 초성 찾기</span><span class="en">R2 quick panel · L2 button guide · search</span></li>
+          <li><span class="ko">게임마다 에뮬레이터 따로 정하기</span><span class="en">Per-game emulator</span></li>
         </ul>
       </div>
-      <div class="duo">
-        <div class="screen"><img data-shot="search" alt="" loading="lazy"></div>
+      <div class="single">
         <div class="screen"><img data-shot="quick" alt="" loading="lazy"></div>
       </div>
-    </div>
+    </article>
+
   </div>
 </section>
 
 <section id="styles">
   <div class="wrap">
-    <div class="kicker"><span class="ko">화면 스타일</span><span class="en">Styles</span></div>
-    <h2><span class="ko">취향대로 <em>네 가지</em>.</span><span class="en">Four looks. <em>Your</em> call.</span></h2>
-    <p class="sub"><span class="ko">설정에서 카드 하나만 누르면 화면 전체가 바뀝니다. 스타일마다 배경음악도 따로 있어요.</span><span class="en">Tap one card in Settings and the whole screen changes. Each style has its own music.</span></p>
-    <div class="styles">
-      <figure><div class="screen"><img data-shot="home_night" alt="" loading="lazy"></div>
-        <figcaption><span class="ko">기본</span><span class="en">Basic</span><span><span class="ko">유리처럼 맑은 독</span><span class="en">Clear glass docks</span></span></figcaption></figure>
-      <figure><div class="screen"><img data-shot="pixel_home" alt="" loading="lazy"></div>
-        <figcaption><span class="ko">도트</span><span class="en">Pixel</span><span><span class="ko">각진 칸 · 도트 글꼴</span><span class="en">Square tiles · pixel font</span></span></figcaption></figure>
-      <figure><div class="screen"><img data-shot="wheel" alt="" loading="lazy"></div>
-        <figcaption><span class="ko">휠</span><span class="en">Wheel</span><span><span class="ko">반원 휠과 룰렛</span><span class="en">Half-wheel and roulette</span></span></figcaption></figure>
-      <figure><div class="screen"><img data-shot="list_main" alt="" loading="lazy"></div>
-        <figcaption><span class="ko">목록</span><span class="en">List</span><span><span class="ko">제목 목록과 게임 설명</span><span class="en">Title list and descriptions</span></span></figcaption></figure>
+    <div class="kicker"><span class="ko">테마</span><span class="en">Themes</span></div>
+    <h2><span class="ko"><em>다양한</em> 테마</span><span class="en">Plenty of <em>themes</em></span></h2>
+    <p class="sub"><span class="ko">다양한 테마를 계속해서 업데이트하여 제공합니다.</span><span class="en">More themes keep coming with every update.</span></p>
+    <div class="themes">
+      <div class="screen"><img data-shot="pixel" alt="" loading="lazy"></div>
+      <div class="screen"><img data-shot="list" alt="" loading="lazy"></div>
     </div>
   </div>
 </section>
 
-<section class="ko">
-  <div class="wrap">
-    <div class="kicker">소개 영상</div>
-    <h2>70초 만에 보는 노리</h2>
-    <p class="sub">모든 장면은 실제 앱에서 바로 찍었습니다.</p>
-    <div class="screen" style="max-width:960px">
-      <video src="assets/ko/teaser.mp4" poster="assets/ko/teaser_poster.jpg" controls preload="none" playsinline></video>
-    </div>
-  </div>
-</section>
-
-<section>
+<section id="systems">
   <div class="wrap">
     <div class="kicker"><span class="ko">지원 기기와 에뮬레이터</span><span class="en">Systems and emulators</span></div>
-    <h2><span class="ko">34개 기기 + 안드로이드 앱</span><span class="en">34 systems + Android apps</span></h2>
-    <div class="chips" style="margin-bottom:26px">
-      <span class="chip">PS2</span><span class="chip">PS3</span><span class="chip">PSP</span><span class="chip">PS Vita</span><span class="chip">PS1</span><span class="chip">GameCube</span><span class="chip">Wii</span><span class="chip">Wii U</span><span class="chip">Switch</span><span class="chip">3DS</span><span class="chip">NDS</span><span class="chip">N64</span><span class="chip">GBA</span><span class="chip">GBC</span><span class="chip">GB</span><span class="chip">SFC / SNES</span><span class="chip">FC / NES</span><span class="chip">Saturn</span><span class="chip">Dreamcast</span><span class="chip">Mega Drive</span><span class="chip">Master System</span><span class="chip">Game Gear</span><span class="chip">PC Engine</span><span class="chip">PC Engine CD</span><span class="chip">NGP</span><span class="chip">NGPC</span><span class="chip">WonderSwan</span><span class="chip">WS Color</span><span class="chip">MSX</span><span class="chip">MSX2</span><span class="chip">X68000</span><span class="chip">PC-98</span><span class="chip">MS-DOS</span><span class="chip">Arcade</span>
-    </div>
-    <p class="sub" style="margin-bottom:12px"><span class="ko">바로 연결되는 에뮬레이터</span><span class="en">Works out of the box with</span></p>
+    <h2><span class="ko">34개 기기와 안드로이드 앱</span><span class="en">34 systems and Android apps</span></h2>
     <div class="chips">
-      <span class="chip">NetherSX2</span><span class="chip">PPSSPP</span><span class="chip">DuckStation</span><span class="chip">Dolphin</span><span class="chip">Eden</span><span class="chip">Kenji-NX</span><span class="chip">aPS3e</span><span class="chip">Cemu</span><span class="chip">melonDS</span><span class="chip">Azahar</span><span class="chip">Redream</span><span class="chip">Flycast</span><span class="chip">Yaba Sanshiro 2</span><span class="chip">Vita3K</span><span class="chip">RetroArch</span>
+      <span>PS2</span><span>PS3</span><span>PSP</span><span>PS Vita</span><span>PS1</span><span>GameCube</span><span>Wii</span><span>Wii U</span><span>Switch</span><span>3DS</span><span>NDS</span><span>N64</span><span>GBA</span><span>GBC</span><span>GB</span><span>SFC / SNES</span><span>FC / NES</span><span>Saturn</span><span>Dreamcast</span><span>Mega Drive</span><span>Master System</span><span>Game Gear</span><span>PC Engine</span><span>PC Engine CD</span><span>NGP</span><span>NGPC</span><span>WonderSwan</span><span>WS Color</span><span>MSX</span><span>MSX2</span><span>X68000</span><span>PC-98</span><span>MS-DOS</span><span>Arcade</span>
+    </div>
+    <p class="sub small"><span class="ko">바로 연결되는 에뮬레이터</span><span class="en">Works out of the box with</span></p>
+    <div class="chips soft">
+      <span>NetherSX2</span><span>PPSSPP</span><span>DuckStation</span><span>Dolphin</span><span>Eden</span><span>Kenji-NX</span><span>aPS3e</span><span>Cemu</span><span>melonDS</span><span>Azahar</span><span>Redream</span><span>Flycast</span><span>Yaba Sanshiro 2</span><span>Vita3K</span><span>RetroArch</span>
     </div>
   </div>
 </section>
@@ -248,42 +257,45 @@
 <section id="start">
   <div class="wrap">
     <div class="kicker"><span class="ko">시작하기</span><span class="en">Get started</span></div>
-    <h2><span class="ko">세 걸음이면 끝.</span><span class="en">Three steps.</span></h2>
+    <h2><span class="ko">세 걸음이면 끝</span><span class="en">Three steps</span></h2>
     <div class="steps">
-      <div class="card"><b><span class="ko">APK 받기</span><span class="en">Get the APK</span></b>
-        <p><span class="ko">깃허브 릴리스에서 최신 APK를 받아 설치합니다. 새 판은 덮어 깔면 됩니다.</span><span class="en">Download the latest APK from GitHub Releases. New versions install over the old one.</span></p></div>
-      <div class="card"><b><span class="ko">롬 폴더 고르기</span><span class="en">Pick your ROM folder</span></b>
-        <p><span class="ko">ps2, psp, snes처럼 기기 이름으로 나눈 폴더를 고릅니다. ES-DE 폴더가 있으면 함께 고르세요.</span><span class="en">Choose a folder split by system (ps2, psp, snes…). Add your ES-DE folder if you have one.</span></p></div>
-      <div class="card"><b><span class="ko">에뮬레이터 연결</span><span class="en">Set up emulators</span></b>
-        <p><span class="ko">기기 독에서 기기를 고르고 X를 눌러 열 에뮬레이터를 정합니다. 빈 그림은 설정에서 한 번에 받기.</span><span class="en">Select a system in the dock and press X to choose its emulator. Fill missing art from Settings.</span></p></div>
+      <div class="step"><i>1</i><b><span class="ko">APK 받기</span><span class="en">Get the APK</span></b>
+        <p><span class="ko">깃허브 릴리스에서 최신 APK를 받아 설치합니다. 「유해한 앱」 경고가 뜨면 「세부정보 → 무시하고 설치」를 누르세요. 새 판은 노리 안의 「업데이트 확인」으로 받습니다.</span><span class="en">Download the latest APK from GitHub Releases. If Android warns about a harmful app, tap "More details → Install anyway". Later versions come through "Check for updates" inside Nori.</span></p></div>
+      <div class="step"><i>2</i><b><span class="ko">롬 폴더 고르기</span><span class="en">Pick your ROM folder</span></b>
+        <p><span class="ko">ps2, psp, snes처럼 기기 이름으로 나눈 폴더의 상위 폴더 하나를 고릅니다. ES-DE 폴더가 있으면 함께 고르세요.</span><span class="en">Choose the parent folder of your system folders (ps2, psp, snes…). Add your ES-DE folder if you have one.</span></p></div>
+      <div class="step"><i>3</i><b><span class="ko">에뮬레이터 정하기</span><span class="en">Set up emulators</span></b>
+        <p><span class="ko">기기 고르는 화면에서 X를 눌러 그 기기를 열 에뮬레이터를 고릅니다. 빈 그림은 설정에서 한 번에 받습니다.</span><span class="en">On the system screen, press X to choose the emulator for that system. Fill missing art from Settings in one go.</span></p></div>
     </div>
   </div>
 </section>
 
 <section id="faq">
-  <div class="wrap">
+  <div class="wrap narrow">
     <div class="kicker">FAQ</div>
     <h2><span class="ko">자주 묻는 질문</span><span class="en">Questions</span></h2>
     <details><summary><span class="ko">무료인가요?</span><span class="en">Is Nori free?</span></summary>
-      <p><span class="ko">베타 동안은 무료입니다. 1.0 정식판부터는 한 번 결제하면 계속 새 판을 받는 방식으로 바뀔 예정입니다.</span><span class="en">Yes, during the beta. From 1.0 it becomes a one-time purchase that includes future updates.</span></p></details>
-    <details><summary><span class="ko">게임이 들어 있나요?</span><span class="en">Does it include games or emulators?</span></summary>
-      <p><span class="ko">아니요. 노리는 런처라서 게임 파일과 에뮬레이터는 들어 있지 않습니다. 본인이 가진 게임으로만 써 주세요.</span><span class="en">No. Nori is a launcher, so no games or emulators are included. Please only use games you own.</span></p></details>
+      <p><span class="ko">베타 동안은 무료입니다. 1.0 정식판부터는 한 번 결제하면 계속 새 판을 받는 방식이 될 예정입니다.</span><span class="en">Yes, during the beta. From 1.0 it becomes a one-time purchase that includes future updates.</span></p></details>
+    <details><summary><span class="ko">게임이나 에뮬레이터가 들어 있나요?</span><span class="en">Does it include games or emulators?</span></summary>
+      <p><span class="ko">아니요. 노리는 런처라서 게임 파일과 에뮬레이터는 들어 있지 않습니다. 직접 가진 게임으로만 써 주세요.</span><span class="en">No. Nori is a launcher, so no games or emulators are included. Please only use games you own.</span></p></details>
     <details><summary><span class="ko">ES-DE에서 쓰던 그림을 쓸 수 있나요?</span><span class="en">Can I reuse my ES-DE media?</span></summary>
-      <p><span class="ko">네. ES-DE 폴더를 고르면 downloaded_media의 그림·영상과 gamelists의 이름·설명을 그대로 읽습니다.</span><span class="en">Yes. Pick your ES-DE folder and Nori reads the media in downloaded_media plus names and descriptions from gamelists.</span></p></details>
+      <p><span class="ko">네. ES-DE 폴더를 고르면 downloaded_media의 그림·영상과 gamelists의 이름·설명·장르를 그대로 읽습니다.</span><span class="en">Yes. Pick your ES-DE folder and Nori reads the media in downloaded_media plus names, descriptions and genres from gamelists.</span></p></details>
+    <details><summary><span class="ko">파일 이름을 한글로 바꾼 롬도 그림을 받을 수 있나요?</span><span class="en">Can renamed ROMs get art?</span></summary>
+      <p><span class="ko">네. 게임 창(X) → 그림·영상 관리 → 검색해서 그림 받기에서 원래 영어·일본어 이름으로 찾으면 됩니다. 자동으로 받을 때도 이름으로 못 찾으면 파일 지문(CRC·MD5)으로 한 번 더 찾습니다.</span><span class="en">Yes. In the game window (X) → Manage media → Search and download art, search by the original title. Automatic scraping also retries with the file's CRC and MD5.</span></p></details>
     <details><summary><span class="ko">휴대폰에서도 되나요?</span><span class="en">Does it work on phones?</span></summary>
       <p><span class="ko">됩니다. 가로 화면에 맞췄고 손가락으로도 쓸 수 있지만, 패드가 달린 기기에서 가장 편합니다.</span><span class="en">Yes. It's designed for landscape and works with touch, but it's best on devices with built-in controls.</span></p></details>
     <details><summary><span class="ko">버그는 어디에 알리나요?</span><span class="en">Where do I report bugs?</span></summary>
-      <p><span class="ko">깃허브 이슈의 「버그 제보」 양식, 질문과 건의는 깃허브 토론에 남겨 주세요.</span><span class="en">Use the bug report form in GitHub Issues. Questions and ideas go to GitHub Discussions. English is welcome.</span></p></details>
+      <p><span class="ko">깃허브 이슈의 「버그 제보」 양식에 남겨 주세요. 질문과 건의는 깃허브 토론에 남기면 됩니다.</span><span class="en">Use the bug report form in GitHub Issues. Questions and ideas go to GitHub Discussions.</span></p></details>
   </div>
 </section>
 
 <section class="final">
   <div class="wrap">
-    <h2><span class="ko">지금 <em>무료 베타</em>로 써 보세요.</span><span class="en">Try the <em>free beta</em> today.</span></h2>
-    <p class="sub" style="margin:0 auto 28px"><span class="ko">안드로이드 8.0 이상 · 가로 화면 · 패드 권장</span><span class="en">Android 8.0+ · landscape · gamepad recommended</span></p>
-    <div class="cta">
+    <img class="final-logo" src="assets/logo.svg" alt="Nori">
+    <h2><span class="ko">지금 <em>무료 베타</em>로</span><span class="en">Try the <em>free beta</em></span></h2>
+    <p class="sub"><span class="ko">안드로이드 8.0 이상 · 가로 화면 · 패드 권장</span><span class="en">Android 8.0+ · landscape · gamepad recommended</span></p>
+    <div class="cta center">
       <a class="btn primary" href="https://github.com/nori-launcher/Nori/releases/latest"><span class="ko">무료로 받기</span><span class="en">Download free</span></a>
-      <a class="btn ghost" href="https://github.com/nori-launcher/Nori/discussions"><span class="ko">질문 · 건의</span><span class="en">Questions & ideas</span></a>
+      <a class="btn ghost" href="https://github.com/nori-launcher/Nori/discussions"><span class="ko">질문 · 건의</span><span class="en">Questions &amp; ideas</span></a>
     </div>
   </div>
 </section>
@@ -294,7 +306,7 @@
   <div class="wrap">
     <div class="links">
       <a href="https://github.com/nori-launcher/Nori">GitHub</a>
-      <a href="https://github.com/nori-launcher/Nori/releases">Releases</a>
+      <a href="https://github.com/nori-launcher/Nori/releases"><span class="ko">릴리스</span><span class="en">Releases</span></a>
       <a href="https://github.com/nori-launcher/Nori/issues/new/choose"><span class="ko">버그 제보</span><span class="en">Bug report</span></a>
       <a href="https://github.com/nori-launcher/Nori/discussions"><span class="ko">토론</span><span class="en">Discussions</span></a>
     </div>
@@ -317,7 +329,12 @@
       });
       document.querySelectorAll('[data-video]').forEach(function (v) {
         var src = 'assets/' + l + '/' + v.getAttribute('data-video') + '.mp4';
-        if (v.getAttribute('src') !== src) { v.src = src; v.poster = 'assets/' + l + '/wheel.webp'; v.play && v.play().catch(function () {}); }
+        var poster = v.getAttribute('data-poster');
+        if (poster) v.poster = 'assets/' + l + '/' + poster + '.webp';
+        if (v.getAttribute('src') !== src) {
+          v.src = src;
+          if (v.autoplay && v.play) v.play().catch(function () {});
+        }
       });
       document.querySelectorAll('.lang button').forEach(function (b) {
         b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false');
