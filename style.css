@@ -50,7 +50,10 @@ section { padding: 72px 0; }
 .nav .links { display: flex; gap: 20px; font-weight: 700; font-size: 15px; }
 .nav .links a { text-decoration: none; color: var(--muted); transition: color .15s; }
 .nav .links a:hover { color: var(--ink); }
-.nav .right { margin-left: auto; }
+.nav .right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.yt { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); }
+.yt:hover { color: #fff; background: #FF3B3B; border-color: #FF3B3B; }
+.yt svg { width: 20px; height: 20px; fill: currentColor; }
 .lang { display: flex; border: 1px solid var(--line); border-radius: 99px; overflow: hidden; }
 .lang button {
   font: inherit; font-weight: 800; font-size: 13px; padding: 6px 13px;
