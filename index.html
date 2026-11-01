@@ -103,7 +103,10 @@
     <div class="kicker"><span class="ko">소개 영상</span><span class="en">Video</span></div>
     <h2><span class="ko">2분 만에 보는 노리</span><span class="en">Nori in two minutes</span></h2>
     <div class="screen big">
-      <video data-video="intro" data-poster="home" controls preload="none" playsinline></video>
+      <!-- 유튜브 채널 @nori-launcher 의 소개 영상. 언어를 바꾸면 그 언어판으로 -->
+      <iframe data-yt-ko="ASu5Dsy4j_M" data-yt-en="IECEfF4k_pM" title="Nori" loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -339,6 +342,10 @@
           v.src = src;
           if (v.autoplay && v.play) v.play().catch(function () {});
         }
+      });
+      document.querySelectorAll('iframe[data-yt-ko]').forEach(function (f) {
+        var src = 'https://www.youtube-nocookie.com/embed/' + f.getAttribute('data-yt-' + l) + '?rel=0';
+        if (f.getAttribute('src') !== src) f.src = src;
       });
       document.querySelectorAll('.lang button').forEach(function (b) {
         b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false');

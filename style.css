@@ -91,6 +91,7 @@ h1 em, h2 em { font-style: normal; color: var(--pink); }
   aspect-ratio: 1280 / 770;
 }
 .screen img, .screen video { width: 100%; height: 100%; object-fit: cover; }
+.screen iframe { display: block; width: 100%; height: 100%; border: 0; }
 .screen.glow { box-shadow: 0 30px 80px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .06), 0 0 120px rgba(88, 166, 255, .22); }
 .screen.big { aspect-ratio: 16 / 9; border-radius: 22px; }
 
