@@ -52,7 +52,7 @@
 <section class="hero">
   <div class="wrap">
     <div class="copy">
-      <span class="pill"><span class="ko">무료 베타 · 0.5.3</span><span class="en">Free beta · 0.5.3</span></span>
+      <span class="pill"><span class="ko">무료 베타 · <span class="nori-ver">0.5.7</span></span><span class="en">Free beta · <span class="nori-ver">0.5.7</span></span></span>
       <h1>
         <span class="ko">레트로 게임을<br><em>한곳에서</em><br>골라 바로 시작</span>
         <span class="en">All your<br>retro games<br><em>in one place</em></span>
@@ -373,6 +373,16 @@
     });
     apply(root.className.indexOf('lang-en') >= 0 ? 'en' : 'ko');
   })();
+</script>
+<script>
+// 최신 버전 번호를 깃허브 릴리스에서 읽어 와 채운다 (새 버전을 낼 때마다 손으로 고치지 않게)
+fetch('https://api.github.com/repos/nori-launcher/Nori/releases/latest')
+  .then(function (r) { return r.ok ? r.json() : null; })
+  .then(function (j) {
+    var v = j && j.tag_name ? j.tag_name.replace(/^v/, '') : null;
+    if (v) document.querySelectorAll('.nori-ver').forEach(function (e) { e.textContent = v; });
+  })
+  .catch(function () {});
 </script>
 </body>
 </html>
