@@ -2,5 +2,4 @@
 <path d="M18,104 L18,52 Q18,30 40,30 L56,30 Q78,30 78,52 L78,104"/>
 <path d="M116,52 L136,52 Q152,52 152,68 L152,88 Q152,104 136,104 L116,104 Q100,104 100,88 L100,68 Q100,52 116,52 Z"/>
 <path d="M176,104 L176,70 Q176,52 194,52 L204,52"/><path d="M242,60 L242,104"/></g>
-<path d="M225,42 A17,17 0 1,1 259,42 A17,17 0 1,1 225,42 Z" fill="#FF6FA0" stroke="#4A4D57" stroke-width="13"/>
-<path d="M248,35 A9,9 0 0,1 251,43" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
+<defs><radialGradient id="noriBall" gradientUnits="userSpaceOnUse" cx="234" cy="31" r="34"><stop offset="0" stop-color="#FFA8C8"/><stop offset=".55" stop-color="#FF6FA0"/><stop offset="1" stop-color="#DC4A80"/></radialGradient></defs><circle cx="242" cy="42" r="22" fill="url(#noriBall)"/><path d="M229,35 A14,14 0 0,1 241,26" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="4.2" stroke-linecap="round"/></svg>
